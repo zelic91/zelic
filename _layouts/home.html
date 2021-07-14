@@ -1,0 +1,25 @@
+---
+layout: default
+title: Welcome
+subtitle: I'm waiting for you for a long time ...
+hero-image: /assets/img/work.jpeg
+---
+
+{% include hero.html title=layout.title subtitle=layout.subtitle hero-image=layout.hero-image %}
+
+<section class="container container-fixed container-main">
+    {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+    {% else %}
+    {% assign posts = site.posts %}
+    {% endif %}
+
+    {%- for post in posts -%}
+    {%- assign mod = forloop.index | modulo: 2 -%}
+    {%- if mod == 1 -%}
+    {% include post-item-left.html title=post.title excerpt=post.excerpt url=post.url %}
+    {%- else -%}
+    {% include post-item-right.html title=post.title excerpt=post.excerpt url=post.url %}
+    {%- endif -%}
+    {%- endfor -%}
+</section>
