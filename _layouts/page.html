@@ -1,8 +1,14 @@
 ---
 layout: default
-title: Welcome
-subtitle: I'm waiting for you for a long time ...
 hero-image: /assets/img/work.jpeg
 ---
 
-{{ content }}
+{% include hero.html title=page.title subtitle=page.excerpt hero-image=layout.hero-image %}
+
+<section class="container container-fixed container-main">
+    <div class="card card-post-single">
+        <div class="card-body">
+            {{ content }}
+        </div>
+    </div>
+</section>
