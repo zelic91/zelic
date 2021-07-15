@@ -1,11 +1,8 @@
 ---
 layout: default
-title: Welcome
-subtitle: I'm waiting for you for a long time ...
-hero-image: /assets/img/work.jpeg
 ---
 
-{% include hero.html title=layout.title subtitle=layout.subtitle hero-image=layout.hero-image %}
+{% include hero.html title=page.title subtitle=page.subtitle hero-image=page.hero-image %}
 
 <section class="container container-fixed container-main">
     {% if site.paginate %}
@@ -17,9 +14,9 @@ hero-image: /assets/img/work.jpeg
     {%- for post in posts -%}
     {%- assign mod = forloop.index | modulo: 2 -%}
     {%- if mod == 1 -%}
-    {% include post-item-left.html title=post.title excerpt=post.excerpt url=post.url %}
+    {% include post-item-left.html title=post.title excerpt=post.excerpt url=post.url image=post.image %}
     {%- else -%}
-    {% include post-item-right.html title=post.title excerpt=post.excerpt url=post.url %}
+    {% include post-item-right.html title=post.title excerpt=post.excerpt url=post.url image=post.image %}
     {%- endif -%}
     {%- endfor -%}
 </section>
